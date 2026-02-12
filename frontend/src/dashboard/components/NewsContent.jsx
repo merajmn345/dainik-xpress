@@ -3,6 +3,8 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { IoEye } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 function NewsContent() {
     return (
@@ -25,7 +27,7 @@ function NewsContent() {
                     className="px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10"
                 />
             </div>
-            <div className="absolute overflow-x-auto p-4">
+            <div className="relative overflow-x-auto p-4">
                 <table className="w-full text-sm text-left text-slate-600">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
@@ -70,6 +72,26 @@ function NewsContent() {
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div className="flex items-center justify-end gap-x-3 px-10 text-slate-600">
+                <div className="flex gap-x-3 justify-center items-center">
+                    <p className="px-4 py-3 font-semibold text-sm">News Per Page</p>
+                    <select
+                        name="category"
+                        id="category"
+                        className="px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10"
+                    >
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <p className="px-6 px-3 font-semibold text-sm">6/22 - of 5</p>
+                <div className="flex items-center gap-x-3">
+                    <IoIosArrowBack className="w-5 h-5 cursor-pointer" />
+                    <IoIosArrowForward className="w-5 h-5 cursor-pointer" />
+                </div>
             </div>
         </div>
     );
