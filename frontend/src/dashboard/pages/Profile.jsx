@@ -2,15 +2,15 @@ import React from "react";
 import { FaImage } from "react-icons/fa";
 function Profile() {
     return (
-        <div className="md:w-full grid grid-cols-2 gap-x-6 mt-5 sm:grid-cols-1 gap-y-3">
-            <div className="bg-white p-6 rounded flex justify-center items-center">
+        <div className="md:w-full grid grid-cols-1 gap-x-6 mt-5 md:grid-cols-2 gap-y-3">
+            <div className="bg-white p-6 rounded flex justify-center items-center gap-3">
                 <div className="flex justify-center items-center flex-col">
                     <label
                         htmlFor="img"
-                        className="w-[150px] h-[150px] flex justify-center items-center rounded text-[#404040] gap-2  cursor-pointer border-2 border-dashed"
+                        className="w-[100px] h-[100px] flex justify-center items-center rounded text-[#404040] gap-2  cursor-pointer border-2 border-dashed"
                     >
                         <div className="flex justify-center items-center flex-col gap-y-2">
-                            <span className="text-2xl">
+                            <span className="text-xl">
                                 <FaImage />
                             </span>
                             <span>Select Image</span>
@@ -18,7 +18,7 @@ function Profile() {
                     </label>
                     <input type="file" id="" className="hidden" />
                 </div>
-                <div className="text-[#404040] flex flex-col gap-y-1 justify-around items-center">
+                <div className="text-[#404040] flex flex-col gap-y-1 justify-around items-left ">
                     <span>Name: Meraj Ansari</span>
                     <span>Email: meraj@gmail.com</span>
                     <span>Category: Education</span>
