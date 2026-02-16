@@ -14,7 +14,7 @@ import CreateNews from "./dashboard/pages/CreateNews";
 
 function App() {
     const userInfo = {
-        role: "writer",
+        role: "admin",
     };
     return (
         <BrowserRouter>
