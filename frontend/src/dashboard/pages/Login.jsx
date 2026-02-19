@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { base_url } from "../../config/config";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import storeContext from "../../context/storeContext";
 
 function Login() {
-    const [loader, setLoader] = useState(false);
+    const navigate = useNavigate();
+    const { dispatch } = useContext(storeContext);
+    const [loading, setLoading] = useState(false);
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
@@ -20,9 +24,22 @@ function Login() {
     const submit = async (e) => {
         e.preventDefault();
         try {
+            setLoading(true);
             const { data } = await axios.post(`${base_url}/api/login`, loginData);
-            console.log(data);
-        } catch (error) {}
+            setLoading(false);
+            localStorage.setItem("newsToken", data.token);
+            toast.success(data.message);
+            dispatch({
+                type: "login_success",
+                payload: {
+                    token: data.token,
+                },
+            });
+            navigate("/dashboard");
+        } catch (error) {
+            setLoading(false);
+            toast.error(error.response.data.message);
+        }
     };
     return (
         <div className="min-w-screen min-h-screen bg-slate-200 flex justify-center items-center">
@@ -62,12 +79,13 @@ function Login() {
                                 required
                             />
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-6">
                             <button
-                                className="px-3 py-[6px] w-full bg-purple-500 rounded-sm text-white
+                                disabled={loading}
+                                className="cursor-pointer px-3 py-[6px] w-full bg-purple-500 rounded-sm text-white
 "
                             >
-                                Login
+                                {loading ? "loading..." : "Login"}
                             </button>
                         </div>
                     </form>
