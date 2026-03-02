@@ -21,7 +21,7 @@ function Login() {
         });
     };
 
-    const submit = async (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
         try {
             setLoading(true);
@@ -48,7 +48,7 @@ function Login() {
                     <div className="w-full flex justify-center items-center">
                         <img src="logo.png" alt="Dainik-Xpress-logo" />
                     </div>
-                    <form className="mt-8" onSubmit={submit}>
+                    <form className="mt-8" onSubmit={submitForm}>
                         <div className="flex flex-col gap-y-2">
                             <label htmlFor="email" className="text-md font-medium">
                                 Eamil

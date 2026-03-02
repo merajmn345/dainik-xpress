@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillProfile } from "react-icons/ai";
+import storeContext from "../../context/storeContext";
 
 function Header() {
+    const { store } = useContext(storeContext);
+    console.log(store);
+    console.log("store");
     return (
         <div className="pl-4 fixed w-[calc(100vw-250px)] top-4 z-50">
             <div className="w-full rounded h-[70px] flex justify-between items-center p-4 bg-white">
@@ -13,10 +17,10 @@ function Header() {
                 <div className="mr-4">
                     <div className="flex gap-x-2">
                         <div className="flex flex-col justify-center items-end">
-                            <span>Md Meraj</span>
-                            <span>Admin</span>
+                            <span>{store.userInfo?.name}</span>
+                            <span>{store.userInfo?.role}</span>
                         </div>
-                        <img src="" alt="" className="border-1 w-10 h-10 rounded-full" />
+                        <img src="" alt="" className="border-0 w-10 h-10 rounded-full" />
                     </div>
                 </div>
             </div>

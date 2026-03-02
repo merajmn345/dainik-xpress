@@ -2,6 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function AddWriter() {
+    const [state, setState] = useState({
+        name: "",
+        email: "",
+        password: "",
+        category: "",
+    });
+
+    const inputHandler = (e) => {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value,
+        });
+    };
     return (
         <div className="bg-white rounded-md">
             <div className="flex justify-between p-4">
@@ -26,6 +39,9 @@ function AddWriter() {
                                 name="name"
                                 className="px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10"
                                 id="name"
+                                onChange={inputHandler}
+                                value={state.name}
+                                required
                             />
                         </div>
                         <div className="flex flex-col gap-y-2">
@@ -36,6 +52,9 @@ function AddWriter() {
                                 name="category"
                                 id="category"
                                 className="px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10"
+                                onChange={inputHandler}
+                                value={state.name}
+                                required
                             >
                                 <option value="">--select category--</option>
                                 <option value="Education">Education</option>
@@ -58,6 +77,9 @@ function AddWriter() {
                                 name="email"
                                 className="px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10"
                                 id="email"
+                                onChange={inputHandler}
+                                value={state.name}
+                                required
                             />
                         </div>
                         <div className="flex flex-col gap-y-2">
@@ -70,6 +92,9 @@ function AddWriter() {
                                 name="password"
                                 className="px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10"
                                 id="password"
+                                onChange={inputHandler}
+                                value={state.name}
+                                required
                             />
                         </div>
                     </div>

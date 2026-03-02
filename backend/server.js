@@ -20,7 +20,6 @@ if (process.env.mode === "production") {
 }
 const port = process.env.port || 5002;
 db_connect();
-
 app.use("/", require("./routes/authRoutes"));
 app.use("/", (req, res) => res.send("Hello world"));
 

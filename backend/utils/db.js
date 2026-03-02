@@ -4,13 +4,15 @@ const db_connect = async () => {
     try {
         if (process.env.mode === "production") {
             await mongoose.connect(process.env.db_production_url);
-            console.log("production database connected");
+            console.log("Production database connected");
         } else {
-            await mongoose.connect(process.env.db_production_url);
-            console.log("local database connected");
+            await mongoose.connect(process.env.db_local_url); // ✅ FIXED
+            console.log("Local database connected");
         }
+
+        console.log("Connected DB:", mongoose.connection.name);
     } catch (error) {
-        new Error("Database not connected");
+        console.log("Database connection error:", error.message);
     }
 };
 
